@@ -41,8 +41,7 @@ int main(int argc, char **argv)
 
       execvp("grep", grep_args);
     }
-  else
-    {
+  else{
       // parent gets here and handles "cat scores"
 
       // replace standard output with output part of pipe
