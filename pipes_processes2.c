@@ -17,7 +17,7 @@ int main(int argc, char **argv)
   int pid;
 
   char *cat_args[] = {"cat", "scores", NULL};
-  char *grep_args[] = {"grep", "Lakers", NULL};
+  char *grep_args[] = {"grep", argv[1], NULL};
 
   // make a pipe (fds go in pipefd[0] and pipefd[1])
 
@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 
       dup2(pipefd[0], 0);
 
-      // close unused hald of pipe
+      // close unused half of pipe
 
       close(pipefd[1]);
 
@@ -41,7 +41,8 @@ int main(int argc, char **argv)
 
       execvp("grep", grep_args);
     }
-  else{
+  else
+    {
       // parent gets here and handles "cat scores"
 
       // replace standard output with output part of pipe

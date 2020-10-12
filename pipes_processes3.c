@@ -64,7 +64,7 @@ int main(int argc, char **argv) {
 				close(pipefd2[1]);
 
 				// execute grep
-				execvp("grep", grep_args);
+				execvp(grep_args[0], grep_args);
 			}
     }
   else {
@@ -79,6 +79,6 @@ int main(int argc, char **argv) {
 			close(pipefd2[1]);
 
       // execute cat
-      execvp("cat", cat_args);
+      execvp(cat_args[0], cat_args);
     }
 }

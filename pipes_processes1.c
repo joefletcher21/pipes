@@ -43,8 +43,7 @@ int main() {
         close(fd1[0]);  // Close reading end of first pipe
 			  close(fd2[1]); // Close writing end of second pipe 
   
-        // Write input string and close writing end of first 
-        // pipe. 
+        // Write input string 
         write(fd1[1], input_str, strlen(input_str)+1); 
         
   
@@ -87,7 +86,6 @@ int main() {
         concat_str[k] = '\0';   // string ends with '\0' 
   
         printf("Concatenated string %s\n", concat_str);
-
 
         // Write input string and close writing end of first 
         // pipe. 
